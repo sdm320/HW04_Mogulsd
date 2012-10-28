@@ -1,5 +1,13 @@
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
+#include "Starbucks.h"
+#include "mogulsdStarbucks.h"
+#include <iostream>
+#include <conio.h>
+#include <fstream>
+#include <string>
+
+
 
 using namespace ci;
 using namespace ci::app;
@@ -11,10 +19,31 @@ class HW04_MogulsdApp : public AppBasic {
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
+	
 };
 
 void HW04_MogulsdApp::setup()
 {
+	
+	ifstream myfile;
+	myfile.open("../resources/Starbucks_2006.csv");
+	string words="";
+	if(myfile.fail())
+	{
+		cout << "Error: main() ; Failed to open file: " << endl;
+		
+	}
+	else
+    {
+        string line;
+        do
+        {
+            getline(myfile,line,',');
+            
+        } while (!myfile.eof());
+
+        myfile.close();
+    }
 }
 
 void HW04_MogulsdApp::mouseDown( MouseEvent event )
