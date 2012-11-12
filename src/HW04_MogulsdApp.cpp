@@ -60,8 +60,7 @@ void HW04_MogulsdApp::setup()
 		myfile.close();
 		starbucks = new mogulsdStarbucks();
 		starbucks ->build(starbucksLocations,7655);
-		Entry* nearest = starbucks ->getNearest(.1,.1);
-		cout<<nearest->identifier<<" "<<nearest->x<<" "<<nearest->y<<endl;
+		
 	}
 	
 }
@@ -76,14 +75,13 @@ void HW04_MogulsdApp::update()
 
 void HW04_MogulsdApp::draw()
 {
-	//gl::color( Color(0,0,0));
+	
 	gl::draw(Map, getWindowBounds());
-
-	/*for(int i = 0; i < 7655; i++){
-		center = Vec2f();
-		gl::color(40,140,9);
-		gl::drawSolidCircle(center,5);
-	}*/
+	for(int i = 0; i < 7655; i++){
+		//console() << starbucksLocations[i].x << endl;
+		center = Vec2f(starbucksLocations[i].x,1-(starbucksLocations[i].y));
+		gl::drawSolidCircle(center,1);
+	}
 }
 
 CINDER_APP_BASIC( HW04_MogulsdApp, RendererGl )

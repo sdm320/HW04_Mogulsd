@@ -13,7 +13,11 @@ void mogulsdStarbucks::build(Entry* c, int n){
 	}
 
 }
+void mogulsdStarbucks::draw(){
+	gl::color(0,255,0);
 
+
+}
 Entry* mogulsdStarbucks::getNearest(double x, double y){
 	Entry nearest  = arrayData[0];
 	Entry* temp = new Entry();
