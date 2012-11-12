@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\HW04_MogulsdApp.cpp">
+    <ClCompile Include="mogulsdStarbucks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mogulsdStarbucks.cpp">
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HW04_MogulsdApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
