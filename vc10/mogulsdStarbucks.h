@@ -5,6 +5,8 @@
 #include "cinder/ImageIo.h"
 #include "Starbucks.h"
 
+using namespace ci;
+
 class mogulsdStarbucks
 {
 public:
@@ -13,7 +15,9 @@ public:
 	Entry* getNearest(double x, double y);
 	Entry* arrayData;
 	int arrayLength;
-	void draw(Entry* e);
-	Vector center;
+	void draw();
+	ColorA color;
+	Vec2f center;
+
 };
 

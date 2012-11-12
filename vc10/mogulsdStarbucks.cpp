@@ -15,7 +15,10 @@ void mogulsdStarbucks::build(Entry* c, int n){
 }
 void mogulsdStarbucks::draw(){
 	gl::color(0,255,0);
-
+	for(int i=0;i<arrayLength;i++){
+		center = Vec2f(arrayData[i].x,1-(arrayData[i].y));
+		gl::drawSolidCircle(center,1);
+	}
 
 }
 Entry* mogulsdStarbucks::getNearest(double x, double y){
