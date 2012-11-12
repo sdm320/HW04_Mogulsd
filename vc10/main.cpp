@@ -35,8 +35,7 @@ int main(){
 		myfile.close();
 		mogulsdStarbucks* starbucks = new mogulsdStarbucks();
 		starbucks ->build(starbucksLocations,7655);
-		Entry* nearest = starbucks ->getNearest(.1,.1);
-		cout<<nearest->identifier<<" "<<nearest->x<<" "<<nearest->y<<endl;
+		
 	}
 
 

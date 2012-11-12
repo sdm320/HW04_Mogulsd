@@ -39,7 +39,6 @@ void HW04_MogulsdApp::setup()
 {
 	Map = gl::Texture(loadImage( "usa-map.gif"));
 	starbucksLocations = new Entry[7700];
-	nearest = new Entry();
 	myfile.open("Starbucks_2006.csv");
 	words="";
 	int i = 0;
@@ -62,19 +61,28 @@ void HW04_MogulsdApp::setup()
 		myfile.close();
 		starbucks = new mogulsdStarbucks();
 		starbucks ->build(starbucksLocations,7655);
+		for(double i=0;i<1;i+=.01){
+		for(double j=0;j<1;j+=.01){
+			nearest = starbucks->getNearest(i,j);
+			console()<<nearest->identifier<<endl;
+		}
 	}
+	}
+	
 	
 }
 
 void HW04_MogulsdApp::mouseDown( MouseEvent event )
 {
 	if(event.isLeft()){
-		Vec2i mouse_location = event.getPos();
-		double scaledX = mouse_location.x/(AppWidth);
-		double scaledY = (mouse_location.y)/(AppHeight);
+		Vec2f mouseLocation = event.getPos();
+		double scaledX = mouseLocation.x/1000.0;
+		double scaledY = mouseLocation.y/1000.0;
 
-
-		nearest = starbucks -> getNearest(scaledX, scaledY);
+		Entry* nearest = starbucks -> getNearest(.1, .1);
+		
+		console() <<mouseLocation.x<<" "<<mouseLocation.y<<endl;
+		console() <<scaledX<<" "<<scaledY<<endl;
 		console() <<nearest->identifier<<" "<<nearest->x<<" "<<nearest->y<< endl;
 		
 	}
