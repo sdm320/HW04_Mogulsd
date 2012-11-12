@@ -15,9 +15,6 @@ public:
 	Entry* getNearest(double x, double y);
 	Entry* arrayData;
 	int arrayLength;
-	void draw();
-	ColorA color;
-	Vec2f center;
 
 };
 

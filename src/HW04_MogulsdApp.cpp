@@ -31,7 +31,7 @@ private:
 	static const int TextureSize=1024;
 	mogulsdStarbucks* starbucks;
 	gl::Texture Map;
-	Vec2f center;
+
 
 };
 
@@ -55,18 +55,12 @@ void HW04_MogulsdApp::setup()
 			myfile.get();
 			myfile>>starbucksLocations[i].y;
 			myfile.get();
-			cout<<starbucksLocations[i].identifier<<endl;
 			i++;
 		}
 		myfile.close();
 		starbucks = new mogulsdStarbucks();
 		starbucks ->build(starbucksLocations,7655);
-		for(double i=0;i<1;i+=.01){
-		for(double j=0;j<1;j+=.01){
-			nearest = starbucks->getNearest(i,j);
-			console()<<nearest->identifier<<endl;
-		}
-	}
+
 	}
 	
 	
@@ -77,9 +71,9 @@ void HW04_MogulsdApp::mouseDown( MouseEvent event )
 	if(event.isLeft()){
 		Vec2f mouseLocation = event.getPos();
 		double scaledX = mouseLocation.x/1000.0;
-		double scaledY = mouseLocation.y/1000.0;
+		double scaledY = (1-mouseLocation.y)/1000.0;
 
-		Entry* nearest = starbucks -> getNearest(.1, .1);
+		Entry* nearest = starbucks -> getNearest(scaledX, scaledY);
 		
 		console() <<mouseLocation.x<<" "<<mouseLocation.y<<endl;
 		console() <<scaledX<<" "<<scaledY<<endl;
