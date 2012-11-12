@@ -90,7 +90,9 @@ void HW04_MogulsdApp::draw()
 {
 	
 	gl::draw(Map, getWindowBounds());
-	
+	for(int i=0;i<55;i++){
+		starbucks->draw(starbucks->arrayData[i]);
+	}
 
 }
 
