@@ -70,8 +70,8 @@ void HW04_MogulsdApp::mouseDown( MouseEvent event )
 {
 	if(event.isLeft()){
 		Vec2f mouseLocation = event.getPos();
-		double scaledX = mouseLocation.x/1000.0;
-		double scaledY = (1-mouseLocation.y)/1000.0;
+		double scaledX = mouseLocation.x/(AppWidth*.673);
+		double scaledY = (AppHeight - mouseLocation.y)/(AppWidth*.673);
 
 		Entry* nearest = starbucks -> getNearest(scaledX, scaledY);
 		
